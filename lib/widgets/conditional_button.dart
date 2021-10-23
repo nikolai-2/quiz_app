@@ -6,7 +6,8 @@ class ConditionalButton extends StatelessWidget {
   final String symbol;
 
   const ConditionalButton({
-    Key? key, required this.symbol,
+    Key? key,
+    required this.symbol,
   }) : super(key: key);
 
   @override
@@ -14,25 +15,25 @@ class ConditionalButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: quizGrey,
-              ),
+        onTap: () {},
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: quizGrey,
             ),
-            height: 40,
-            width: 40,
-            child: Align(
-              alignment: Alignment.center,
-              child: Text(
-                symbol, 
-                style: headerStyle,
-              ),
-            )
           ),
+          height: 40,
+          width: 40,
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              symbol,
+              style: headerStyle,
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -39,7 +39,8 @@ class _QuizPageState extends State<QuizPage> {
             Text(
               'Вариант ответа',
               style: hintStyle.copyWith(
-                  color: bolshoi ? const Color(0xFF14C59C) : null),
+                color: bolshoi ? const Color(0xFF14C59C) : null,
+              ),
             ),
             const Spacer(),
             Container(

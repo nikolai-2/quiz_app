@@ -15,27 +15,36 @@ class StartPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 27),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
-              Spacer(flex: 2,),
-              Text('Добро\nпожаловать', style: headerStyle),
-              SizedBox(height: 35),
-              Text('Введите ваш E-Mail и пароль, чтобы авторизоваться в панели администратора', style: hintStyle,),
-              Spacer(),
-              QuizInputField(
-                  hintText: 'Введите E-Mail',
-              ),
-              SizedBox(height: 10,),
-              QuizInputField(
-                  hintText: 'Введите пароль',
-                  obscureText: true,
-              ),
-              Spacer(flex: 2,),
-              Align(
-                alignment: Alignment.centerRight,
-                child: ContinueButton()
-              ),
-            ],
-          ),
+          children: const [
+            Spacer(
+              flex: 2,
+            ),
+            Text('Добро\nпожаловать', style: headerStyle),
+            SizedBox(height: 35),
+            Text(
+              'Введите ваш E-Mail и пароль, чтобы авторизоваться в панели администратора',
+              style: hintStyle,
+            ),
+            Spacer(),
+            QuizInputField(
+              hintText: 'Введите E-Mail',
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            QuizInputField(
+              hintText: 'Введите пароль',
+              obscureText: true,
+            ),
+            Spacer(
+              flex: 2,
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: ContinueButton(),
+            ),
+          ],
+        ),
       ),
     );
   }

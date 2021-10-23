@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/colors.dart';
-import 'package:new_app/text_styles.dart';
 
 class PlusMinusButton extends StatelessWidget {
   final String symbol;
 
   const PlusMinusButton({
-    Key? key, required this.symbol,
+    Key? key,
+    required this.symbol,
   }) : super(key: key);
 
   @override
@@ -21,9 +21,13 @@ class PlusMinusButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             symbol,
-            style: const TextStyle(color: quizGrey, fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: quizGrey,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        )
+        ),
       ),
     );
   }

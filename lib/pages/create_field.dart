@@ -9,7 +9,7 @@ class CreateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: const [
           Text('Создание\nполя', style: headerStyle),
           QuizInputField(
             hintText: 'Введите что-либо',

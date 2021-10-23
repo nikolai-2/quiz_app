@@ -25,7 +25,7 @@ class CreateCaterogy extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: quizGrey,
-                  width: 1.0
+                  width: 1.0,
                 ),
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -35,36 +35,44 @@ class CreateCaterogy extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
                       cursorColor: Colors.white,
-                      style: const TextStyle(
-                        color: Colors.white
-                      ),
+                      style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         hintText: 'Введите что-нибудь...',
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                           color: quizGrey,
-                        )
+                        ),
                       ),
                     ),
                   ),
                   Row(
                     children: [
-                      const Padding(padding: EdgeInsets.only(left: 20)),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20),
+                      ),
                       const ConditionalButton(
                         symbol: '>',
                       ),
-                      const Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                      ),
                       const ConditionalButton(
                         symbol: '<',
                       ),
-                      const Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                      ),
                       const ConditionalButton(
                         symbol: '=',
                       ),
                       const Spacer(),
-                      const PlusMinusButton(symbol: '-',),
+                      const PlusMinusButton(
+                        symbol: '-',
+                      ),
                       Text('$number', style: headerStyle),
-                      const PlusMinusButton(symbol: '+',),
+                      const PlusMinusButton(
+                        symbol: '+',
+                      ),
                     ],
                   ),
                 ],
@@ -74,10 +82,7 @@ class CreateCaterogy extends StatelessWidget {
             Container(
               height: 60,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: quizGrey,
-                  width: 1.0
-                ),
+                border: Border.all(color: quizGrey, width: 1.0),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Padding(

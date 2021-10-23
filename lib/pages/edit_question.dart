@@ -9,7 +9,7 @@ class EditQuestionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: const [
           Text('Редактирование\nвопроса', style: headerStyle),
           QuizInputField(hintText: 'Введите название вопроса'),
           QuizInputField(hintText: 'Введите вопрос'),
