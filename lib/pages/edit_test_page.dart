@@ -5,10 +5,10 @@ import 'package:new_app/widgets/plus_minus_button.dart';
 import 'package:new_app/widgets/quiz_text_field.dart';
 import 'package:new_app/text_styles.dart';
 
-class CreateCaterogy extends StatelessWidget {
-  final int number;
+class EditCaterogy extends StatelessWidget {
+  final int number = 100;
 
-  const CreateCaterogy({Key? key, required this.number}) : super(key: key);
+  const EditCaterogy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

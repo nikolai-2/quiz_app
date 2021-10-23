@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/text_styles.dart';
 
-class EndPage extends StatelessWidget {
-  const EndPage({Key? key}) : super(key: key);
+class DonePage extends StatelessWidget {
+  const DonePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,10 @@ class EndPage extends StatelessWidget {
           children: const [
             Image(image: AssetImage('assets/images/rocket.png')),
             SizedBox(height: 35),
-            Text('Готово!', style: headerStyle,),
+            Text(
+              'Готово!',
+              style: headerStyle,
+            ),
             SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 27),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/pages/admin_page/admin_page.dart';
+import 'package:new_app/route.dart';
 import 'package:new_app/widgets/continue_button.dart';
 import 'package:new_app/widgets/quiz_text_field.dart';
 import 'package:new_app/text_styles.dart';
 
-class StartPage extends StatelessWidget {
-  const StartPage({
+class AdminLoginPage extends StatelessWidget {
+  const AdminLoginPage({
     Key? key,
   }) : super(key: key);
 
@@ -15,33 +17,37 @@ class StartPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 27),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
-            Spacer(
+          children: [
+            const Spacer(
               flex: 2,
             ),
-            Text('Добро\nпожаловать', style: headerStyle),
-            SizedBox(height: 35),
-            Text(
+            const Text('Добро\nпожаловать', style: headerStyle),
+            const SizedBox(height: 35),
+            const Text(
               'Введите ваш E-Mail и пароль, чтобы авторизоваться в панели администратора',
               style: hintStyle,
             ),
-            Spacer(),
-            QuizInputField(
+            const Spacer(),
+            const QuizInputField(
               hintText: 'Введите E-Mail',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            QuizInputField(
+            const QuizInputField(
               hintText: 'Введите пароль',
               obscureText: true,
             ),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: ContinueButton(),
+              child: ContinueButton(
+                onTap: () => Navigator.of(context).push(
+                  route(const AdminPage()),
+                ),
+              ),
             ),
           ],
         ),

@@ -69,10 +69,11 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 27),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 27),
+        child: Center(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 700),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

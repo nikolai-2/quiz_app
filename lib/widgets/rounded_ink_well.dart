@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:new_app/colors.dart';
 import 'package:new_app/text_styles.dart';
 
-class RoudedInkWell extends StatelessWidget {
+class RoundedInkWell extends StatelessWidget {
   final String label;
   final IconData icon;
+  final VoidCallback? onTap;
 
-  const RoudedInkWell({
+  const RoundedInkWell({
     Key? key,
     required this.label,
     required this.icon,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),

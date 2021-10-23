@@ -10,32 +10,35 @@ class GenerateTestTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 27),
-      child: Column(
-        children: [
-          const Spacer(),
-          const QuizInputField(hintText: 'Введите Имя'),
-          const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-          InkWell(
-            onTap: () {},
-            borderRadius: BorderRadius.circular(10),
-            child: Container(
-              decoration: BoxDecoration(
-                color: quizBlue,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 60,
-              width: double.infinity,
-              child: const Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Сгенерировать текст',
-                  style: labelStyle,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          children: [
+            const Spacer(),
+            const QuizInputField(hintText: 'Введите Имя'),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            InkWell(
+              onTap: () {},
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: quizBlue,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                height: 60,
+                width: double.infinity,
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Сгенерировать текст',
+                    style: labelStyle,
+                  ),
                 ),
               ),
             ),
-          ),
-          const Spacer(),
-        ],
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }

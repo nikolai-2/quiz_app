@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/pages/admin_page/admin_page.dart';
-import 'package:new_app/pages/quiz_page.dart';
-
-import 'pages/quiz_page.dart';
+import 'pages/admin_login_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -18,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         // scaffoldBackgroundColor:
       ),
-      home: const AdminPage(),
+      home: const AdminLoginPage(),
     );
   }
 }
