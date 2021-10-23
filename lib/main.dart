@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/pages/end_page.dart';
-import 'package:new_app/pages/start_page.dart';
+import 'package:new_app/pages/admin_page/admin_page.dart';
+import 'package:new_app/pages/quiz_page.dart';
 
 import 'pages/quiz_page.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         // scaffoldBackgroundColor:
       ),
-      home: const QuizPage(),
+      home: const AdminPage(),
     );
   }
 }

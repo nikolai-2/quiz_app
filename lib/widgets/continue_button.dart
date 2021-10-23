@@ -18,11 +18,12 @@ class ContinueButton extends StatelessWidget {
         onPressed: onTap,
         child: const Text('Далее'),
         style: ElevatedButton.styleFrom(
-            primary: const Color.fromRGBO(5, 211, 246, 1),
-            textStyle: const TextStyle(fontSize: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            )),
+          primary: const Color.fromRGBO(5, 211, 246, 1),
+          textStyle: const TextStyle(fontSize: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
       ),
     );
   }

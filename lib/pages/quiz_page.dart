@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_app/colors.dart';
 import 'package:new_app/text_styles.dart';
 
-import '../continue_button.dart';
+import '../widgets/continue_button.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
@@ -39,7 +39,8 @@ class _QuizPageState extends State<QuizPage> {
             Text(
               'Вариант ответа',
               style: hintStyle.copyWith(
-                  color: bolshoi ? const Color(0xFF14C59C) : null),
+                color: bolshoi ? const Color(0xFF14C59C) : null,
+              ),
             ),
             const Spacer(),
             Container(
