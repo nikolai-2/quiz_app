@@ -3,17 +3,19 @@ import 'package:new_app/colors.dart';
 
 class QuizInputField extends StatelessWidget {
   final String hintText;
+  final bool obscureText;
   
   const QuizInputField({
-    Key? key, required this.hintText,
+    Key? key, required this.hintText, this.obscureText = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       cursorColor: Colors.white,
       style: const TextStyle(
-        color: Colors.white,
+        color: Colors.white
       ),
       decoration: InputDecoration(
         hintText: hintText,

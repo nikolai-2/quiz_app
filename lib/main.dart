@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/pages/admin_page.dart';
+import 'package:new_app/pages/create_category.dart';
+import 'package:new_app/pages/edit_question.dart';
 import 'package:new_app/pages/end_page.dart';
+import 'package:new_app/pages/quiz_page.dart';
 import 'package:new_app/pages/start_page.dart';
 
 void main() => runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/continue_button.dart';
-import 'package:new_app/quiz_text_field.dart';
+import 'package:new_app/widgets/continue_button.dart';
+import 'package:new_app/widgets/quiz_text_field.dart';
 import 'package:new_app/text_styles.dart';
 
 class StartPage extends StatelessWidget {
@@ -27,6 +27,7 @@ class StartPage extends StatelessWidget {
               SizedBox(height: 10,),
               QuizInputField(
                   hintText: 'Введите пароль',
+                  obscureText: true,
               ),
               Spacer(flex: 2,),
               Align(
