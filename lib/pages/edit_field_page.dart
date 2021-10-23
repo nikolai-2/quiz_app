@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:new_app/text_styles.dart';
 import 'package:new_app/widgets/quiz_text_field.dart';
 
-class EditField extends StatelessWidget {
-  const EditField({Key? key}) : super(key: key);
+class EditFieldPage extends StatelessWidget {
+  const EditFieldPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -33,7 +33,7 @@ class EditTestsTab extends StatelessWidget {
                 label: 'Добавить что-либо',
                 icon: Icons.add_sharp,
                 onTap: () => Navigator.of(context).push(
-                  route(const EditCaterogy()),
+                  route(const EditTestPage()),
                 ),
               ),
               const Text(
@@ -48,7 +48,7 @@ class EditTestsTab extends StatelessWidget {
                 label: 'Добавить что-либо',
                 icon: Icons.add_sharp,
                 onTap: () => Navigator.of(context).push(
-                  route(const EditField()),
+                  route(const EditFieldPage()),
                 ),
               ),
             ],

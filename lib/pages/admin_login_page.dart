@@ -13,43 +13,41 @@ class AdminLoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 27),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Spacer(
-              flex: 2,
-            ),
-            const Text('Добро\nпожаловать', style: headerStyle),
-            const SizedBox(height: 35),
-            const Text(
-              'Введите ваш E-Mail и пароль, чтобы авторизоваться в панели администратора',
-              style: hintStyle,
-            ),
-            const Spacer(),
-            const QuizInputField(
-              hintText: 'Введите E-Mail',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const QuizInputField(
-              hintText: 'Введите пароль',
-              obscureText: true,
-            ),
-            const Spacer(
-              flex: 2,
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: ContinueButton(
-                onTap: () => Navigator.of(context).push(
-                  route(const AdminPage()),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 27),
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 500),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text('Добро\nпожаловать', style: headerStyle),
+                const SizedBox(height: 35),
+                const Text(
+                  'Введите ваш E-Mail и пароль, чтобы авторизоваться в панели администратора',
+                  style: hintStyle,
                 ),
-              ),
+                const SizedBox(height: 58),
+                const QuizInputField(
+                  hintText: 'Введите E-Mail',
+                ),
+                const SizedBox(height: 10),
+                const QuizInputField(
+                  hintText: 'Введите пароль',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 40),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ContinueButton(
+                    onTap: () => Navigator.of(context).push(
+                      route(const AdminPage()),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
