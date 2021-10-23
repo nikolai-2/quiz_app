@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/colors.dart';
 
 class ContinueButton extends StatelessWidget {
   final VoidCallback? onTap;
@@ -18,7 +19,7 @@ class ContinueButton extends StatelessWidget {
         onPressed: onTap,
         child: const Text('Далее'),
         style: ElevatedButton.styleFrom(
-          primary: const Color.fromRGBO(5, 211, 246, 1),
+          primary: quizBlue,
           textStyle: const TextStyle(fontSize: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/text_styles.dart';
+import 'package:new_app/widgets/continue_button.dart';
+import 'package:new_app/widgets/quiz_back_button.dart';
 import 'package:new_app/widgets/quiz_text_field.dart';
 
 class EditFieldPage extends StatelessWidget {
@@ -8,13 +10,49 @@ class EditFieldPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: const [
-          Text('Создание\nполя', style: headerStyle),
-          QuizInputField(
-            hintText: 'Введите что-либо',
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 27),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Создание\nметрики', style: headerStyle),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.delete_outline,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+              ],
+            ),
+            const Padding(padding: EdgeInsets.only(top: 56)),
+            const Text(
+              'Название',
+              style: labelStyle,
+            ),
+            const Padding(padding: EdgeInsets.only(top: 10)),
+            const QuizInputField(
+              hintText: 'Введите что-либо',
+            ),
+            const Spacer(),
+            Row(
+              children: [
+                const Padding(padding: EdgeInsets.only(left: 19)),
+                const QuizBackButton(),
+                const Spacer(),
+                ContinueButton(
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

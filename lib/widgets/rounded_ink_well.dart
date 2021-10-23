@@ -32,14 +32,8 @@ class RoundedInkWell extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                label,
-                style: hintStyle,
-              ),
-              Icon(
-                icon,
-                color: quizGrey,
-              )
+              Text(label, style: hintStyle),
+              Icon(icon, color: quizGrey),
             ],
           ),
         ),

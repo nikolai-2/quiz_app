@@ -16,36 +16,44 @@ class EditTestsTab extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: 700),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
               const Text(
                 'Редактирование и создание тестов',
                 style: headerStyle,
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
               const Text(
-                'Категории',
+                'Тесты',
                 style: labelStyle,
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               const RoundedInkWell(
-                label: 'Зайти в существующую',
+                label: 'Основной тест',
                 icon: Icons.arrow_forward_rounded,
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               RoundedInkWell(
-                label: 'Добавить что-либо',
+                label: 'Добавить тест',
                 icon: Icons.add_sharp,
                 onTap: () => Navigator.of(context).push(
                   route(const EditTestPage()),
                 ),
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               const Text(
-                'Поля',
+                'Метрики',
                 style: labelStyle,
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               const RoundedInkWell(
-                label: 'Зайти в существующую',
+                label: 'Логика',
                 icon: Icons.arrow_forward_rounded,
               ),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               RoundedInkWell(
-                label: 'Добавить что-либо',
+                label: 'Добавить метрику',
                 icon: Icons.add_sharp,
                 onTap: () => Navigator.of(context).push(
                   route(const EditFieldPage()),
