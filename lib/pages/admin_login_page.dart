@@ -40,6 +40,7 @@ class AdminLoginPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: ContinueButton(
+                    text: 'Далее',
                     onTap: () => Navigator.of(context).push(
                       route(const AdminPage()),
                     ),

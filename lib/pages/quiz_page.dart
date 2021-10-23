@@ -120,6 +120,7 @@ class _QuizPageState extends State<QuizPage> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: ContinueButton(
+                    text: 'Далее',
                     onTap: () => setState(() {
                       selectedTab++;
                       selectedOption = null;

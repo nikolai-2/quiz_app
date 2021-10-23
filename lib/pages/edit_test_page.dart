@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/pages/edit_question_page.dart';
+import 'package:new_app/route.dart';
 import 'package:new_app/widgets/continue_button.dart';
 import 'package:new_app/widgets/quiz_back_button.dart';
 import 'package:new_app/widgets/quiz_text_field.dart';
@@ -29,8 +31,10 @@ class EditTestPage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          const Text('Редактирование\nтеста',
-                              style: headerStyle),
+                          const Text(
+                            'Редактирование\nтеста',
+                            style: headerStyle,
+                          ),
                           const Spacer(),
                           IconButton(
                             onPressed: () {},
@@ -52,7 +56,9 @@ class EditTestPage extends StatelessWidget {
                       RoundedInkWell(
                         label: 'Про зарплату',
                         icon: Icons.arrow_forward_rounded,
-                        onTap: () {},
+                        onTap: () => Navigator.of(context).push(
+                          route(const EditQuestionPage()),
+                        ),
                       ),
                       const Padding(padding: EdgeInsets.only(top: 16)),
                       RoundedInkWell(

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:new_app/colors.dart';
 
 class ContinueButton extends StatelessWidget {
+  final String text;
   final VoidCallback? onTap;
 
   const ContinueButton({
     Key? key,
     this.onTap,
+    this.text = 'Готово',
   }) : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class ContinueButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: onTap,
-        child: const Text('Далее'),
+        child: Text(text),
         style: ElevatedButton.styleFrom(
           primary: quizBlue,
           textStyle: const TextStyle(fontSize: 16),
