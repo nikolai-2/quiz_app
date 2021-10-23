@@ -7,10 +7,11 @@ class QuizBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         Navigator.pop(context);
       },
-      child: const Text('Назад', style: labelStyle),
+      child: const Center(child: Text('Назад', style: labelStyle)),
     );
   }
 }

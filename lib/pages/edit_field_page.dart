@@ -10,49 +10,70 @@ class EditFieldPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 27),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Создание\nметрики', style: headerStyle),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.delete_outline,
-                    color: Colors.white,
-                    size: 24,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 27),
+              child: Center(
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 550),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 60),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Создание\nметрики', style: headerStyle),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.delete_outline,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 56)),
+                      const Text(
+                        'Название',
+                        style: labelStyle,
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const QuizInputField(
+                        hintText: 'Введите что-либо',
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
-            const Padding(padding: EdgeInsets.only(top: 56)),
-            const Text(
-              'Название',
-              style: labelStyle,
-            ),
-            const Padding(padding: EdgeInsets.only(top: 10)),
-            const QuizInputField(
-              hintText: 'Введите что-либо',
-            ),
-            const Spacer(),
-            Row(
+          ),
+          Container(
+            height: 60,
+            margin: const EdgeInsets.symmetric(horizontal: 27),
+            constraints: const BoxConstraints(maxWidth: 550),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Padding(padding: EdgeInsets.only(left: 19)),
-                const QuizBackButton(),
+                const Padding(
+                  padding: EdgeInsets.only(left: 19),
+                  child: QuizBackButton(),
+                ),
                 const Spacer(),
                 ContinueButton(
                   onTap: () {},
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 36),
+        ],
       ),
     );
   }

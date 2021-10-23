@@ -11,10 +11,12 @@ class ContinueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      width: 180,
-      height: 90,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxWidth: 180,
+        minWidth: 180,
+        minHeight: 60,
+      ),
       child: ElevatedButton(
         onPressed: onTap,
         child: const Text('Далее'),

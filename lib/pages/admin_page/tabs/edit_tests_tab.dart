@@ -14,26 +14,26 @@ class EditTestsTab extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 27),
       child: Center(
         child: Container(
-          constraints: const BoxConstraints(maxWidth: 700),
+          constraints: const BoxConstraints(maxWidth: 500),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
+              const Padding(padding: EdgeInsets.only(top: 60)),
               const Text(
-                'Редактирование и создание тестов',
+                'Редактирование и\nсоздание тестов',
                 style: headerStyle,
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
+              const Padding(padding: EdgeInsets.only(top: 40)),
               const Text(
                 'Тесты',
                 style: labelStyle,
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.only(top: 16)),
               const RoundedInkWell(
                 label: 'Основной тест',
                 icon: Icons.arrow_forward_rounded,
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.only(top: 16)),
               RoundedInkWell(
                 label: 'Добавить тест',
                 icon: Icons.add_sharp,
@@ -41,17 +41,17 @@ class EditTestsTab extends StatelessWidget {
                   route(const EditTestPage()),
                 ),
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.only(top: 32)),
               const Text(
                 'Метрики',
                 style: labelStyle,
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.only(top: 16)),
               const RoundedInkWell(
                 label: 'Логика',
                 icon: Icons.arrow_forward_rounded,
               ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.only(top: 16)),
               RoundedInkWell(
                 label: 'Добавить метрику',
                 icon: Icons.add_sharp,

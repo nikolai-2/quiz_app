@@ -19,7 +19,7 @@ class _AdminPageState extends State<AdminPage> {
       case 0:
         return const EditTestsTab();
       case 1:
-        return const ResultsTab(name: 'Евгений');
+        return const ResultsTab();
       case 2:
         return const GenerateTestTab();
       default:
