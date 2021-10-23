@@ -70,60 +70,62 @@ class _QuizPageState extends State<QuizPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          constraints: const BoxConstraints(maxWidth: 500),
-          padding: const EdgeInsets.symmetric(horizontal: 27),
-          child: ListView(
-            children: [
-              const SizedBox(height: 74),
-              const Text(
-                'Общие вопросы',
-                style: hintStyle,
-              ),
-              const SizedBox(height: 14),
-              const Text('Вопрос 01', style: headerStyle),
-              const SizedBox(height: 28),
-              Row(
-                children: [
-                  for (var i = 0; i < tabsCount; i++)
-                    Expanded(
-                      child: Container(
-                        color: tabColor(i),
-                        height: 2,
-                        margin: const EdgeInsets.only(right: 4),
-                      ),
-                    ),
-                ],
-              ),
-              const SizedBox(height: 28),
-              SizedBox(
-                height: 140,
-                child: Text(
-                  'Попа пися попа кака пися попа кака писяпися' * 100,
-                  style: bodyStyle,
-                  maxLines: 7,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 27),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 74),
+                const Text(
+                  'Общие вопросы',
+                  style: hintStyle,
                 ),
-              ),
-              const SizedBox(height: 48),
-              for (var i = 0; i < 4; i++) ...[
-                xyi(
-                  bolshoi: selectedOption == i,
-                  onTap: () => setState(
-                    () => selectedOption = i,
+                const SizedBox(height: 14),
+                const Text('Вопрос 01', style: headerStyle),
+                const SizedBox(height: 28),
+                Row(
+                  children: [
+                    for (var i = 0; i < tabsCount; i++)
+                      Expanded(
+                        child: Container(
+                          color: tabColor(i),
+                          height: 2,
+                          margin: const EdgeInsets.only(right: 4),
+                        ),
+                      ),
+                  ],
+                ),
+                const SizedBox(height: 28),
+                SizedBox(
+                  height: 140,
+                  child: Text(
+                    'Попа пися попа кака пися попа кака писяпися' * 100,
+                    style: bodyStyle,
+                    maxLines: 7,
                   ),
                 ),
-                const SizedBox(height: 15),
-              ],
-              const SizedBox(height: 28),
-              Align(
-                alignment: Alignment.centerRight,
-                child: ContinueButton(
-                  onTap: () => setState(() {
-                    selectedTab++;
-                    selectedOption = null;
-                  }),
+                const SizedBox(height: 48),
+                for (var i = 0; i < 4; i++) ...[
+                  xyi(
+                    bolshoi: selectedOption == i,
+                    onTap: () => setState(
+                      () => selectedOption = i,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                ],
+                const SizedBox(height: 28),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ContinueButton(
+                    onTap: () => setState(() {
+                      selectedTab++;
+                      selectedOption = null;
+                    }),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
