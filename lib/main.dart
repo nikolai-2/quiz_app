@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:new_app/pages/end_page.dart';
 import 'package:new_app/pages/start_page.dart';
 
+import 'pages/quiz_page.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         // scaffoldBackgroundColor:
       ),
-      home: const StartPage(),
+      home: const QuizPage(),
     );
   }
 }
