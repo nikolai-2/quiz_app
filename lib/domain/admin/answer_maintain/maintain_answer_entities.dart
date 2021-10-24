@@ -10,8 +10,10 @@ class MaintainableAnswer {
 }
 
 class MaintainableAnswerMetric {
+  final String id;
   final String name;
   MaintainableAnswerMetric({
+    required this.id,
     required this.name,
   });
 }
