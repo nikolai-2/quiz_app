@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/domain/admin/metric_maintain/maintain_metric_entities.dart';
+import 'package:new_app/presentation/providers.dart';
 import 'package:new_app/presentation/text_styles.dart';
 import 'package:new_app/presentation/widgets/continue_button.dart';
 import 'package:new_app/presentation/widgets/quiz_back_button.dart';
 import 'package:new_app/presentation/widgets/quiz_text_field.dart';
 
-class EditFieldPage extends StatelessWidget {
+class EditFieldPage extends StatefulWidget {
   final MaintainableMetric? metric;
 
   const EditFieldPage({
     Key? key,
     required this.metric,
   }) : super(key: key);
+
+  @override
+  State<EditFieldPage> createState() => _EditFieldPageState();
+}
+
+class _EditFieldPageState extends State<EditFieldPage> {
+  Future<void> save(String name, String text) async {
+    final res = MaintainableMetric(
+      id: widget.metric?.id ?? newId(),
+      name: name,
+    );
+    await maintainMetricRepository.saveMetric(res);
+    Navigator.of(context).pop(res);
+  }
 
   @override
   Widget build(BuildContext context) {

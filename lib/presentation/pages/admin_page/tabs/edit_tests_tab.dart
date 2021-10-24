@@ -35,16 +35,18 @@ class _EditTestsTabState extends State<EditTestsTab> {
 
   void openTest(String id) async {
     final test = await maintainTestRepository.getTest(id);
-    Navigator.of(context).push(
+    await Navigator.of(context).push(
       route(EditTestPage(test: test)),
     );
+    await refresh();
   }
 
   void openMetric(String id) async {
     final metric = await maintainMetricRepository.getMetric(id);
-    Navigator.of(context).push(
+    await Navigator.of(context).push(
       route(EditFieldPage(metric: metric)),
     );
+    await refresh();
   }
 
   @override

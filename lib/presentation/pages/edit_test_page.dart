@@ -29,11 +29,26 @@ class _EditTestPageState extends State<EditTestPage> {
     _questions = widget.test?.questions ?? [];
   }
 
-  void openQuestion(String id) async {
-    final question = await maintainQuestionRepository.getQuestion(id);
-    Navigator.of(context).push(
+  void openQuestion(String? id) async {
+    final question =
+        id == null ? null : await maintainQuestionRepository.getQuestion(id);
+    final outQuestion = await Navigator.of(context).push(
       route(EditQuestionPage(question: question)),
     );
+    if (outQuestion == null) return;
+    _questions.add(
+      MaintainableQuestion(outQuestion.text, outQuestion.id),
+    );
+  }
+
+  Future<void> save(String name) async {
+    final res = MaintainableTest(
+      id: widget.test?.id ?? newId(),
+      name: name,
+      questions: _questions,
+    );
+    await maintainTestRepository.saveTest(res);
+    Navigator.of(context).pop(res);
   }
 
   @override
@@ -92,9 +107,7 @@ class _EditTestPageState extends State<EditTestPage> {
                       RoundedInkWell(
                         label: 'Добавить вопрос',
                         icon: Icons.add,
-                        onTap: () => Navigator.of(context).push(
-                          route(const EditQuestionPage(question: null)),
-                        ),
+                        onTap: () => openQuestion(null),
                       ),
                     ],
                   ),
@@ -115,7 +128,7 @@ class _EditTestPageState extends State<EditTestPage> {
                 ),
                 const Spacer(),
                 ContinueButton(
-                  onTap: () {},
+                  onTap: () => save(textController.text),
                 ),
               ],
             ),

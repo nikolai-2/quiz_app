@@ -7,6 +7,7 @@ import 'package:new_app/domain/admin/question_maintain/maintain_question_reposit
 import 'package:new_app/domain/admin/test_link_generation/test_link_generation_repository.dart';
 import 'package:new_app/domain/admin/test_maintain/maintain_test_repository.dart';
 import 'package:new_app/domain/admin/tests_list/test_list_repository.dart';
+import 'package:uuid/uuid.dart';
 
 final MaintainAnswerRepository maintainAnswerRepository;
 final CandidateListRepository candidateListRepository;
@@ -17,3 +18,4 @@ final MaintainQuestionRepository maintainQuestionRepository;
 final TestLinkGenerationRepository testLinkGenerationRepository;
 final MaintainTestRepository maintainTestRepository;
 final TestListRepository testListRepository;
+String newId() => const Uuid().v4();

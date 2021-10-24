@@ -42,6 +42,16 @@ class _EditAnswerPageState extends State<EditAnswerPage> {
     )] = 0;
   }
 
+  Future<void> save(String text) async {
+    final res = MaintainableAnswer(
+      id: widget.answer?.id ?? newId(),
+      text: text,
+      metricToPoints: metricToPoints,
+    );
+    await maintainAnswerRepository.saveAnswer(res);
+    Navigator.of(context).pop(res);
+  }
+
   @override
   Widget build(BuildContext context) {
     final answerTextField = useTextEditingController();
@@ -86,8 +96,9 @@ class _EditAnswerPageState extends State<EditAnswerPage> {
             const Padding(padding: EdgeInsets.only(top: 10)),
             QuizDropdownButton(
               items: metrics.map((e) => e.name).toList(),
-              hint: 'Выберите сотрудника',
+              hint: 'Добавить метрику',
               selectedIndex: null,
+              onChanged: (int i) => onMetricAdded(metrics[i]),
             ),
             const Spacer(),
             Row(
@@ -98,7 +109,7 @@ class _EditAnswerPageState extends State<EditAnswerPage> {
                 ),
                 const Spacer(),
                 ContinueButton(
-                  onTap: () {},
+                  onTap: () => save(answerTextField.text),
                 ),
               ],
             ),

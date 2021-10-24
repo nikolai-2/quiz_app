@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:new_app/domain/admin/answer_maintain/maintain_answer_entities.dart';
 import 'package:new_app/domain/admin/question_maintain/maintain_question_entities.dart';
 import 'package:new_app/presentation/pages/edit_answer_page.dart';
 import 'package:new_app/presentation/providers.dart';
@@ -28,11 +29,28 @@ class _EditQuestionPageState extends State<EditQuestionPage> {
     _answers = widget.question?.answers ?? [];
   }
 
-  void openAnswer(String id) async {
-    final answer = await maintainAnswerRepository.getAnswer(id);
-    Navigator.of(context).push(
+  void openAnswer(String? id) async {
+    final answer =
+        id == null ? null : await maintainAnswerRepository.getAnswer(id);
+    final outAnswer = await Navigator.of(context).push(
       route(EditAnswerPage(answer: answer)),
+    ) as MaintainableAnswer?;
+    if (outAnswer == null) return;
+    _answers.add(MaintainableQuestionAnswer(
+      id: outAnswer.id,
+      text: outAnswer.text,
+    ));
+  }
+
+  Future<void> save(String name, String text) async {
+    final res = MaintainableQuestion(
+      id: widget.question?.id ?? newId(),
+      name: name,
+      text: text,
+      answers: _answers,
     );
+    await maintainQuestionRepository.saveQuestion(res);
+    Navigator.of(context).pop(res);
   }
 
   @override
@@ -101,9 +119,7 @@ class _EditQuestionPageState extends State<EditQuestionPage> {
                         RoundedInkWell(
                           label: 'Добавить отчет',
                           icon: Icons.add_outlined,
-                          onTap: () => Navigator.of(context).push(
-                            route(const EditAnswerPage(answer: null)),
-                          ),
+                          onTap: () => openAnswer(null),
                         ),
                       ],
                     ),
@@ -125,7 +141,7 @@ class _EditQuestionPageState extends State<EditQuestionPage> {
                   ),
                   const Spacer(),
                   ContinueButton(
-                    onTap: () {},
+                    onTap: () => save(nameController.text, textController.text),
                   ),
                 ],
               ),

@@ -6,12 +6,14 @@ class QuizDropdownButton extends StatelessWidget {
   final List<String> items;
   final int? selectedIndex;
   final String hint;
+  final ValueChanged<int> onChanged;
 
   const QuizDropdownButton({
     Key? key,
     required this.items,
     required this.selectedIndex,
     required this.hint,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class QuizDropdownButton extends StatelessWidget {
           value: selectedIndex ?? -1,
           underline: const SizedBox(),
           icon: const SizedBox(),
-          onChanged: (_) {},
+          onChanged: (i) => onChanged(i!),
           dropdownColor: const Color(0xFF252B49),
           borderRadius: BorderRadius.circular(15),
           selectedItemBuilder: (ctx) => [
