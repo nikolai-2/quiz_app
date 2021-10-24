@@ -38,17 +38,15 @@ class _GenerateTestTabState extends State<GenerateTestTab> {
               ),
               const SizedBox(height: 16),
               const QuizDropdownButton(
-                items: ['xyi', 'xyiiii', 'kek'],
-                selectedIndex: 0,
-              ),
-              const RoundedInkWell(
-                label: 'Выберите тест',
-                icon: Icons.keyboard_arrow_down,
+                items: ['xyiiii', 'kek'],
+                hint: 'Выберите тест',
+                selectedIndex: null,
               ),
               const SizedBox(height: 16),
-              const RoundedInkWell(
-                label: 'Выберите сотрудника',
-                icon: Icons.keyboard_arrow_down,
+              const QuizDropdownButton(
+                items: ['xyiiii', 'kek'],
+                hint: 'Выберите сотрудника',
+                selectedIndex: null,
               ),
               const Padding(padding: EdgeInsets.only(top: 72)),
               InkWell(
