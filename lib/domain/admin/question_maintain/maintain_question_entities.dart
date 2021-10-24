@@ -1,10 +1,10 @@
-class Question {
+class MaintainableQuestion {
   final String id;
   final String name;
   final String text;
-  final List<QuestionAnswer> answers;
+  final List<MaintainableQuestionAnswer> answers;
 
-  Question({
+  MaintainableQuestion({
     required this.id,
     required this.name,
     required this.text,
@@ -12,9 +12,9 @@ class Question {
   });
 }
 
-class QuestionAnswer {
+class MaintainableQuestionAnswer {
   final String id;
   final String text;
 
-  QuestionAnswer(this.text, this.id);
+  MaintainableQuestionAnswer(this.text, this.id);
 }
