@@ -1,16 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:new_app/domain/admin/answer_maintain/maintain_answer_entities.dart';
+import 'package:new_app/domain/admin/metrics_list/metrics_list_entities.dart';
 import 'package:new_app/presentation/colors.dart';
+import 'package:new_app/presentation/providers.dart';
 import 'package:new_app/presentation/text_styles.dart';
 import 'package:new_app/presentation/widgets/continue_button.dart';
+import 'package:new_app/presentation/widgets/drop_down_button.dart';
 import 'package:new_app/presentation/widgets/quiz_back_button.dart';
 import 'package:new_app/presentation/widgets/quiz_text_field.dart';
-import 'package:new_app/presentation/widgets/rounded_ink_well.dart';
 
-class EditResultPage extends StatelessWidget {
-  const EditResultPage({Key? key}) : super(key: key);
+class EditAnswerPage extends StatefulWidget {
+  final MaintainableAnswer? answer;
+
+  const EditAnswerPage({Key? key, required this.answer}) : super(key: key);
+
+  @override
+  State<EditAnswerPage> createState() => _EditAnswerPageState();
+}
+
+class _EditAnswerPageState extends State<EditAnswerPage> {
+  List<Metric> metrics = [];
+  late final Map<MaintainableAnswerMetric, int> metricToPoints;
+
+  @override
+  void initState() {
+    super.initState();
+    metricToPoints = widget.answer?.metricToPoints ?? {};
+    refresh();
+  }
+
+  Future<void> refresh() async {
+    metrics = await metricListRepository.getMetrics();
+    if (mounted) setState(() {});
+  }
+
+  void onMetricAdded(Metric metric) {
+    metricToPoints[MaintainableAnswerMetric(
+      id: metric.name,
+      name: metric.name,
+    )] = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final answerTextField = useTextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -36,19 +70,24 @@ class EditResultPage extends StatelessWidget {
             const Padding(padding: EdgeInsets.only(top: 47)),
             const Text('Ответ', style: labelStyle),
             const Padding(padding: EdgeInsets.only(top: 10)),
-            const QuizInputField(hintText: 'Введите ответ'),
-            const Padding(padding: EdgeInsets.only(top: 10)),
-            const Text('Метрики', style: labelStyle),
-            const Padding(padding: EdgeInsets.only(top: 10)),
-            const _SpecialSecretWidget(
-              text: 'Уверенность',
-              points: 50,
+            QuizInputField(
+              hintText: 'Введите ответ',
+              controller: answerTextField,
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
-            RoundedInkWell(
-              label: 'Добавить отчет',
-              icon: Icons.add_outlined,
-              onTap: () {},
+            const Text('Метрики', style: labelStyle),
+            for (final m in metricToPoints.entries) ...[
+              const Padding(padding: EdgeInsets.only(top: 10)),
+              _SpecialSecretWidget(
+                text: m.key.name,
+                points: m.value,
+              ),
+            ],
+            const Padding(padding: EdgeInsets.only(top: 10)),
+            QuizDropdownButton(
+              items: metrics.map((e) => e.name).toList(),
+              hint: 'Выберите сотрудника',
+              selectedIndex: null,
             ),
             const Spacer(),
             Row(

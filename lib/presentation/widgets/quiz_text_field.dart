@@ -4,11 +4,13 @@ import 'package:new_app/presentation/colors.dart';
 class QuizInputField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
+  final TextEditingController? controller;
 
   const QuizInputField({
     Key? key,
     required this.hintText,
     this.obscureText = false,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,7 @@ class QuizInputField extends StatelessWidget {
       style: const TextStyle(
         color: Colors.white,
       ),
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(
