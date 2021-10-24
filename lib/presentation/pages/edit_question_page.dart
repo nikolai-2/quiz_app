@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/presentation/pages/edit_result_page.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:new_app/domain/admin/question_maintain/maintain_question_entities.dart';
+import 'package:new_app/presentation/pages/edit_answer_page.dart';
+import 'package:new_app/presentation/providers.dart';
 import 'package:new_app/presentation/route.dart';
 import 'package:new_app/presentation/text_styles.dart';
 import 'package:new_app/presentation/widgets/continue_button.dart';
@@ -7,11 +10,37 @@ import 'package:new_app/presentation/widgets/quiz_back_button.dart';
 import 'package:new_app/presentation/widgets/quiz_text_field.dart';
 import 'package:new_app/presentation/widgets/rounded_ink_well.dart';
 
-class EditQuestionPage extends StatelessWidget {
-  const EditQuestionPage({Key? key}) : super(key: key);
+class EditQuestionPage extends StatefulHookWidget {
+  final MaintainableQuestion? question;
+
+  const EditQuestionPage({Key? key, required this.question}) : super(key: key);
+
+  @override
+  State<EditQuestionPage> createState() => _EditQuestionPageState();
+}
+
+class _EditQuestionPageState extends State<EditQuestionPage> {
+  late final List<MaintainableQuestionAnswer> _answers;
+
+  @override
+  void initState() {
+    super.initState();
+    _answers = widget.question?.answers ?? [];
+  }
+
+  void openAnswer(String id) async {
+    final answer = await maintainAnswerRepository.getAnswer(id);
+    Navigator.of(context).push(
+      route(EditAnswerPage(answer: answer)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final nameController =
+        useTextEditingController(text: widget.question?.name);
+    final textController =
+        useTextEditingController(text: widget.question?.text);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -50,27 +79,30 @@ class EditQuestionPage extends StatelessWidget {
                         const Padding(padding: EdgeInsets.only(top: 47)),
                         const Text('Вопрос', style: labelStyle),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        const QuizInputField(
+                        QuizInputField(
                           hintText: 'Введите название вопроса',
+                          controller: nameController,
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        const QuizInputField(hintText: 'Введите вопрос'),
+                        QuizInputField(
+                          hintText: 'Введите вопрос',
+                          controller: textController,
+                        ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
                         const Text('Ответы', style: labelStyle),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        RoundedInkWell(
-                          label: 'до 70.000 рублей',
-                          icon: Icons.arrow_forward_outlined,
-                          onTap: () => Navigator.of(context).push(
-                            route(const EditResultPage()),
+                        for (final answer in _answers)
+                          RoundedInkWell(
+                            label: answer.text,
+                            icon: Icons.arrow_forward_outlined,
+                            onTap: () => openAnswer(answer.id),
                           ),
-                        ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
                         RoundedInkWell(
                           label: 'Добавить отчет',
                           icon: Icons.add_outlined,
                           onTap: () => Navigator.of(context).push(
-                            route(const EditResultPage()),
+                            route(const EditAnswerPage(answer: null)),
                           ),
                         ),
                       ],

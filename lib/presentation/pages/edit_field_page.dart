@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/domain/admin/metric_maintain/maintain_metric_entities.dart';
 import 'package:new_app/presentation/text_styles.dart';
 import 'package:new_app/presentation/widgets/continue_button.dart';
 import 'package:new_app/presentation/widgets/quiz_back_button.dart';
 import 'package:new_app/presentation/widgets/quiz_text_field.dart';
 
 class EditFieldPage extends StatelessWidget {
-  const EditFieldPage({Key? key}) : super(key: key);
+  final MaintainableMetric? metric;
+
+  const EditFieldPage({
+    Key? key,
+    required this.metric,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
