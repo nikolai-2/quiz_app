@@ -14,16 +14,22 @@ class DatabaseMaintainTestRepository implements MaintainTestRepository {
   });
 
   @override
-  Future<void> deleteAnswer(Test test) async {
+  Future<void> deleteAnswer(MaintainableTest test) async {
     await store.record(test.id).delete(database);
   }
 
   @override
-  Future<void> saveTest(Test test) => store.record(test.id).put(
+  Future<void> saveTest(MaintainableTest test) => store.record(test.id).put(
         database,
         DbTest(
           id: test.id,
           questionIds: test.questions.map((e) => e.id).toList(),
         ).toMap(),
       );
+
+  @override
+  Future<MaintainableTest> getTest(String id) {
+    // TODO: implement getTest
+    throw UnimplementedError();
+  }
 }
