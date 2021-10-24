@@ -9,7 +9,7 @@ abstract class TestLinkGenerationRepository {
 
   Future<List<Employee>> getEmployesForTesting();
 
-  Future<List<Employee>> getCandidatesForTesting();
+  Future<List<Candidate>> getCandidatesForTesting();
 
   Future<List<TestLinkTest>> getAvailableTests();
 }
