@@ -27,12 +27,15 @@ class EditQuestionPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 30)),
+                          padding: EdgeInsets.symmetric(vertical: 30),
+                        ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Редактирование\nвопроса',
-                                style: headerStyle),
+                            const Text(
+                              'Редактирование\nвопроса',
+                              style: headerStyle,
+                            ),
                             const Spacer(),
                             IconButton(
                               onPressed: () {},
@@ -48,7 +51,8 @@ class EditQuestionPage extends StatelessWidget {
                         const Text('Вопрос', style: labelStyle),
                         const Padding(padding: EdgeInsets.only(top: 10)),
                         const QuizInputField(
-                            hintText: 'Введите название вопроса'),
+                          hintText: 'Введите название вопроса',
+                        ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
                         const QuizInputField(hintText: 'Введите вопрос'),
                         const Padding(padding: EdgeInsets.only(top: 10)),

@@ -7,10 +7,12 @@ import 'package:new_app/domain/admin/metric_maintain/maintain_metric_repository.
 class DatabaseMaintailMetricRepository implements MaintainMetricRepository {
   final Database database;
   final StoreRef store;
+  final StoreRef metricsStore;
 
   DatabaseMaintailMetricRepository({
     required this.database,
     required this.store,
+    required this.metricsStore,
   });
 
   @override
@@ -24,4 +26,11 @@ class DatabaseMaintailMetricRepository implements MaintainMetricRepository {
             database,
             DbMetric(id: metric.id, name: metric.name).toMap(),
           );
+
+  @override
+  Future<MaintainableMetric> getMetric(String id) => store
+      .record(id)
+      .get(database)
+      .then((m) => DbMetric.fromMap(m))
+      .then((m) => MaintainableMetric(id: m.id, name: m.name));
 }

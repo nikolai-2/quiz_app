@@ -16,5 +16,5 @@ class MaintainableQuestionAnswer {
   final String id;
   final String text;
 
-  MaintainableQuestionAnswer(this.text, this.id);
+  MaintainableQuestionAnswer({required this.text, required this.id});
 }

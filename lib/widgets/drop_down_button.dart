@@ -16,44 +16,46 @@ class QuizDropdownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, cnstr) {
-      return DropdownButton<int?>(
-        items: [
-          const DropdownMenuItem(
-            child: Text('Выберите из списка:', style: bodyStyle),
-            value: -1,
-            enabled: false,
-          ),
-          for (var i = 0; i < items.length; i++)
-            DropdownMenuItem(
-              child: Text(items[i], style: bodyStyle),
-              value: i,
+    return LayoutBuilder(
+      builder: (context, cnstr) {
+        return DropdownButton<int?>(
+          items: [
+            const DropdownMenuItem(
+              child: Text('Выберите из списка:', style: bodyStyle),
+              value: -1,
+              enabled: false,
             ),
-        ],
-        value: selectedIndex ?? -1,
-        underline: const SizedBox(),
-        icon: const SizedBox(),
-        onChanged: (_) {},
-        dropdownColor: const Color(0xFF252B49),
-        borderRadius: BorderRadius.circular(15),
-        selectedItemBuilder: (ctx) => [
-          SizedBox(
-            width: cnstr.maxWidth,
-            child: RoundedInkWell(
-              label: hint,
-              icon: Icons.keyboard_arrow_down,
-            ),
-          ),
-          for (var i = 0; i < items.length; i++)
+            for (var i = 0; i < items.length; i++)
+              DropdownMenuItem(
+                child: Text(items[i], style: bodyStyle),
+                value: i,
+              ),
+          ],
+          value: selectedIndex ?? -1,
+          underline: const SizedBox(),
+          icon: const SizedBox(),
+          onChanged: (_) {},
+          dropdownColor: const Color(0xFF252B49),
+          borderRadius: BorderRadius.circular(15),
+          selectedItemBuilder: (ctx) => [
             SizedBox(
               width: cnstr.maxWidth,
               child: RoundedInkWell(
-                label: items[i],
+                label: hint,
                 icon: Icons.keyboard_arrow_down,
               ),
             ),
-        ],
-      );
-    });
+            for (var i = 0; i < items.length; i++)
+              SizedBox(
+                width: cnstr.maxWidth,
+                child: RoundedInkWell(
+                  label: items[i],
+                  icon: Icons.keyboard_arrow_down,
+                ),
+              ),
+          ],
+        );
+      },
+    );
   }
 }

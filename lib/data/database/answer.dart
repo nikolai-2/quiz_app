@@ -3,6 +3,7 @@ const String answersCollection = 'answers';
 class DbAnswer {
   final String id;
   final String text;
+
   DbAnswer({
     required this.id,
     required this.text,
