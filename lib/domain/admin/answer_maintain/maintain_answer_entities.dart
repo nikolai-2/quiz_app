@@ -1,17 +1,17 @@
-class Answer {
+class MaintainableAnswer {
   final String id;
   final String text;
-  final Map<AnswerMetric, int> metricToPoints;
-  Answer({
+  final Map<MaintainableAnswerMetric, int> metricToPoints;
+  MaintainableAnswer({
     required this.id,
     required this.text,
     required this.metricToPoints,
   });
 }
 
-class AnswerMetric {
+class MaintainableAnswerMetric {
   final String name;
-  AnswerMetric({
+  MaintainableAnswerMetric({
     required this.name,
   });
 }
