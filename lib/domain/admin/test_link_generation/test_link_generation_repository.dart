@@ -1,4 +1,4 @@
-import 'package:new_app/domain/admin/employees_list/employee_list_entities.dart';
+import 'package:new_app/domain/admin/test_link_generation/test_link_generation_entities.dart';
 
 abstract class TestLinkGenerationRepository {
   Future<void> generateTestForEmployee(String testId, String employeeId);
@@ -10,4 +10,6 @@ abstract class TestLinkGenerationRepository {
   Future<List<Employee>> getEmployesForTesting();
 
   Future<List<Employee>> getCandidatesForTesting();
+
+  Future<List<TestLinkTest>> getAvailableTests();
 }
