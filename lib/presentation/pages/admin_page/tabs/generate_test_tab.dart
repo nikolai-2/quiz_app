@@ -3,6 +3,7 @@ import 'package:new_app/presentation/colors.dart';
 import 'package:new_app/presentation/text_styles.dart';
 import 'package:new_app/presentation/widgets/quiz_segmentation_tab.dart';
 import 'package:new_app/presentation/widgets/rounded_ink_well.dart';
+import 'package:new_app/widgets/drop_down_button.dart';
 
 class GenerateTestTab extends StatefulWidget {
   const GenerateTestTab({Key? key}) : super(key: key);
@@ -36,6 +37,10 @@ class _GenerateTestTabState extends State<GenerateTestTab> {
                 selected: currentTab,
               ),
               const SizedBox(height: 16),
+              const QuizDropdownButton(
+                items: ['xyi', 'xyiiii', 'kek'],
+                selectedIndex: 0,
+              ),
               const RoundedInkWell(
                 label: 'Выберите тест',
                 icon: Icons.keyboard_arrow_down,

@@ -44,7 +44,7 @@ class EditFieldPage extends StatelessWidget {
                         'Название',
                         style: labelStyle,
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const Padding(padding: EdgeInsets.only(top: 16)),
                       const QuizInputField(
                         hintText: 'Введите что-либо',
                       ),
