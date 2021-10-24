@@ -2,6 +2,7 @@ class MaintainableAnswer {
   final String id;
   final String text;
   final Map<MaintainableAnswerMetric, int> metricToPoints;
+
   MaintainableAnswer({
     required this.id,
     required this.text,

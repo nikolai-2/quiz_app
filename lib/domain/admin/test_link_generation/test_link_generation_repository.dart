@@ -1,9 +1,7 @@
-import 'package:new_app/domain/admin/test_link_generation/test_link_generation_entities.dart';
-
 abstract class TestLinkGenerationRepository {
-  Future<void> generateTestForEmployee(Test test, Employee employee);
+  Future<void> generateTestForEmployee(String testId, String employeeId);
 
-  Future<void> generateTestForCandidate(Test test, Candidate candidate);
+  Future<void> generateTestForCandidate(String testId, String candidateId);
 
-  Future<void> generateTestForNewCandidate(Test test, String name);
+  Future<void> generateTestForNewCandidate(String testId, String name);
 }
