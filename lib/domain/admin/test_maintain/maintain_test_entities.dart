@@ -1,18 +1,18 @@
-class Test {
+class MaintainableTest {
   final String id;
   final String name;
-  final List<Question> questions;
+  final List<MaintainableQuestion> questions;
 
-  Test({
+  MaintainableTest({
     required this.id,
     required this.name,
     required this.questions,
   });
 }
 
-class Question {
+class MaintainableQuestion {
   final String id;
   final String name;
 
-  Question(this.id, this.name);
+  MaintainableQuestion(this.id, this.name);
 }
